@@ -1,6 +1,7 @@
 <?php
 session_start();
+require_once __DIR__ . '/config/koneksi.php';
 session_unset();
 session_destroy();
-header('Location: /XAMPPPPP/login.php');
+header('Location: ' . BASE_URL . '/login.php');
 exit;

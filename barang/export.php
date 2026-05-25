@@ -1,11 +1,11 @@
 <?php
 session_start();
+require_once __DIR__ . '/../config/koneksi.php';
+
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /XAMPPPPP/login.php');
+    header('Location: ' . BASE_URL . '/login.php');
     exit;
 }
-
-require_once __DIR__ . '/../config/koneksi.php';
 
 // Set headers for Excel download
 header("Content-Type: application/vnd.ms-excel");

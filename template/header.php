@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 // Redirect to login if not authenticated
 if (!isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) !== 'login.php') {
-    header('Location: /XAMPPPPP/login.php');
+    header('Location: ' . BASE_URL . '/login.php');
     exit;
 }
 ?>
@@ -22,6 +22,6 @@ if (!isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) !== 'login.ph
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="/XAMPPPPP/css/style.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>/css/style.css" rel="stylesheet">
 </head>
 <body>

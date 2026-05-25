@@ -5,7 +5,7 @@ include __DIR__ . '/../template/navbar.php';
 
 // Only admin
 if ($_SESSION['role'] != 'admin') {
-    header('Location: /XAMPPPPP/index.php');
+    header('Location: ' . BASE_URL . '/index.php');
     exit;
 }
 
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_bind_param($stmt, "ssss", $username, $hashed, $nama_lengkap, $role);
 
             if (mysqli_stmt_execute($stmt)) {
-                header('Location: /XAMPPPPP/user/index.php?msg=added');
+                header('Location: ' . BASE_URL . '/user/index.php?msg=added');
                 exit;
             } else {
                 $error = 'Gagal menyimpan data.';
@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <button type="submit" class="btn btn-primary-custom">
                                     <i class="bi bi-check-lg me-1"></i>Simpan
                                 </button>
-                                <a href="/XAMPPPPP/user/index.php" class="btn btn-outline-custom">
+                                <a href="<?= BASE_URL ?>/user/index.php" class="btn btn-outline-custom">
                                     <i class="bi bi-arrow-left me-1"></i>Kembali
                                 </a>
                             </div>

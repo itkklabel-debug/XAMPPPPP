@@ -13,7 +13,7 @@ if (isset($_GET['delete']) && $_SESSION['role'] == 'admin') {
         unlink(__DIR__ . '/../upload/' . $row['foto']);
     }
     mysqli_query($conn, "DELETE FROM barang WHERE id = $id");
-    header('Location: /XAMPPPPP/barang/index.php?msg=deleted');
+    header('Location: ' . BASE_URL . '/barang/index.php?msg=deleted');
     exit;
 }
 
@@ -28,10 +28,10 @@ $barang = mysqli_query($conn, "SELECT * FROM barang ORDER BY id DESC");
                 <p>Kelola data barang inventaris</p>
             </div>
             <div class="d-flex gap-2">
-                <a href="/XAMPPPPP/barang/export.php" class="btn btn-outline-custom btn-sm-custom">
+                <a href="<?= BASE_URL ?>/barang/export.php" class="btn btn-outline-custom btn-sm-custom">
                     <i class="bi bi-file-earmark-excel me-1"></i>Export Excel
                 </a>
-                <a href="/XAMPPPPP/barang/tambah.php" class="btn btn-primary-custom btn-sm-custom">
+                <a href="<?= BASE_URL ?>/barang/tambah.php" class="btn btn-primary-custom btn-sm-custom">
                     <i class="bi bi-plus-lg me-1"></i>Tambah Barang
                 </a>
             </div>
@@ -68,7 +68,7 @@ $barang = mysqli_query($conn, "SELECT * FROM barang ORDER BY id DESC");
                         <td><?= $no++ ?></td>
                         <td>
                             <?php if ($row['foto']): ?>
-                                <img src="/XAMPPPPP/upload/<?= htmlspecialchars($row['foto']) ?>" class="img-thumbnail-custom" alt="foto">
+                                <img src="<?= BASE_URL ?>/upload/<?= htmlspecialchars($row['foto']) ?>" class="img-thumbnail-custom" alt="foto">
                             <?php else: ?>
                                 <span class="text-muted"><i class="bi bi-image" style="font-size: 1.5rem;"></i></span>
                             <?php endif; ?>
@@ -79,11 +79,11 @@ $barang = mysqli_query($conn, "SELECT * FROM barang ORDER BY id DESC");
                         </td>
                         <td><?= date('d M Y', strtotime($row['created_at'])) ?></td>
                         <td>
-                            <a href="/XAMPPPPP/barang/edit.php?id=<?= $row['id'] ?>" class="btn btn-outline-custom btn-sm-custom me-1">
+                            <a href="<?= BASE_URL ?>/barang/edit.php?id=<?= $row['id'] ?>" class="btn btn-outline-custom btn-sm-custom me-1">
                                 <i class="bi bi-pencil"></i>
                             </a>
                             <?php if ($_SESSION['role'] == 'admin'): ?>
-                            <a href="/XAMPPPPP/barang/index.php?delete=<?= $row['id'] ?>" 
+                            <a href="<?= BASE_URL ?>/barang/index.php?delete=<?= $row['id'] ?>" 
                                class="btn btn-danger-custom btn-sm-custom"
                                onclick="return confirm('Yakin ingin menghapus barang ini?')">
                                 <i class="bi bi-trash"></i>

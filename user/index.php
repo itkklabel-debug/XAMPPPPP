@@ -5,7 +5,7 @@ include __DIR__ . '/../template/navbar.php';
 
 // Only admin can access
 if ($_SESSION['role'] != 'admin') {
-    header('Location: /XAMPPPPP/index.php');
+    header('Location: ' . BASE_URL . '/index.php');
     exit;
 }
 
@@ -15,7 +15,7 @@ if (isset($_GET['delete'])) {
     // Don't delete self
     if ($id != $_SESSION['user_id']) {
         mysqli_query($conn, "DELETE FROM users WHERE id = $id");
-        header('Location: /XAMPPPPP/user/index.php?msg=deleted');
+        header('Location: ' . BASE_URL . '/user/index.php?msg=deleted');
         exit;
     }
 }
@@ -30,7 +30,7 @@ $users = mysqli_query($conn, "SELECT * FROM users ORDER BY id ASC");
                 <h2><i class="bi bi-people me-2"></i>Manajemen User</h2>
                 <p>Kelola akun pengguna sistem</p>
             </div>
-            <a href="/XAMPPPPP/user/tambah.php" class="btn btn-primary-custom btn-sm-custom">
+            <a href="<?= BASE_URL ?>/user/tambah.php" class="btn btn-primary-custom btn-sm-custom">
                 <i class="bi bi-person-plus me-1"></i>Tambah User
             </a>
         </div>
@@ -75,7 +75,7 @@ $users = mysqli_query($conn, "SELECT * FROM users ORDER BY id ASC");
                         <td><?= date('d M Y', strtotime($row['created_at'])) ?></td>
                         <td>
                             <?php if ($row['id'] != $_SESSION['user_id']): ?>
-                            <a href="/XAMPPPPP/user/index.php?delete=<?= $row['id'] ?>" 
+                            <a href="<?= BASE_URL ?>/user/index.php?delete=<?= $row['id'] ?>" 
                                class="btn btn-danger-custom btn-sm-custom"
                                onclick="return confirm('Yakin ingin menghapus user ini?')">
                                 <i class="bi bi-trash"></i>

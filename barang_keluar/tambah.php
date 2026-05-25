@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (mysqli_stmt_execute($stmt)) {
                 // Update stok barang (kurangi)
                 mysqli_query($conn, "UPDATE barang SET stok = stok - $jumlah WHERE id = $id_barang");
-                header('Location: /XAMPPPPP/barang_keluar/index.php?msg=added');
+                header('Location: ' . BASE_URL . '/barang_keluar/index.php?msg=added');
                 exit;
             } else {
                 $error = 'Gagal menyimpan data.';
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <button type="submit" class="btn btn-primary-custom">
                                     <i class="bi bi-check-lg me-1"></i>Simpan
                                 </button>
-                                <a href="/XAMPPPPP/barang_keluar/index.php" class="btn btn-outline-custom">
+                                <a href="<?= BASE_URL ?>/barang_keluar/index.php" class="btn btn-outline-custom">
                                     <i class="bi bi-arrow-left me-1"></i>Kembali
                                 </a>
                             </div>

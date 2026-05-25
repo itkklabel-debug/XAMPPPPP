@@ -5,14 +5,14 @@ include __DIR__ . '/../template/navbar.php';
 
 $id = (int)($_GET['id'] ?? 0);
 if (!$id) {
-    header('Location: /XAMPPPPP/barang/index.php');
+    header('Location: ' . BASE_URL . '/barang/index.php');
     exit;
 }
 
 $result = mysqli_query($conn, "SELECT * FROM barang WHERE id = $id");
 $barang = mysqli_fetch_assoc($result);
 if (!$barang) {
-    header('Location: /XAMPPPPP/barang/index.php');
+    header('Location: ' . BASE_URL . '/barang/index.php');
     exit;
 }
 
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_bind_param($stmt, "sisi", $nama_barang, $stok, $foto, $id);
 
             if (mysqli_stmt_execute($stmt)) {
-                header('Location: /XAMPPPPP/barang/index.php?msg=updated');
+                header('Location: ' . BASE_URL . '/barang/index.php?msg=updated');
                 exit;
             } else {
                 $error = 'Gagal mengupdate data.';
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <label for="foto" class="form-label">Foto Barang</label>
                                 <?php if ($barang['foto']): ?>
                                     <div class="mb-2">
-                                        <img src="/XAMPPPPP/upload/<?= htmlspecialchars($barang['foto']) ?>" 
+                                        <img src="<?= BASE_URL ?>/upload/<?= htmlspecialchars($barang['foto']) ?>" 
                                              class="img-thumbnail-custom" style="max-width: 120px; height: auto;" alt="foto">
                                         <small class="d-block text-muted mt-1">Foto saat ini</small>
                                     </div>
@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <button type="submit" class="btn btn-primary-custom">
                                     <i class="bi bi-check-lg me-1"></i>Update
                                 </button>
-                                <a href="/XAMPPPPP/barang/index.php" class="btn btn-outline-custom">
+                                <a href="<?= BASE_URL ?>/barang/index.php" class="btn btn-outline-custom">
                                     <i class="bi bi-arrow-left me-1"></i>Kembali
                                 </a>
                             </div>

@@ -15,7 +15,7 @@ $data = mysqli_query($conn, "SELECT bk.*, b.nama_barang FROM barang_keluar bk
                 <h2><i class="bi bi-box-arrow-up me-2"></i>Barang Keluar</h2>
                 <p>Catatan barang keluar dari inventaris</p>
             </div>
-            <a href="/XAMPPPPP/barang_keluar/tambah.php" class="btn btn-primary-custom btn-sm-custom">
+            <a href="<?= BASE_URL ?>/barang_keluar/tambah.php" class="btn btn-primary-custom btn-sm-custom">
                 <i class="bi bi-plus-lg me-1"></i>Input Barang Keluar
             </a>
         </div>

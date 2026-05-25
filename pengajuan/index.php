@@ -25,16 +25,16 @@ if (isset($_GET['action']) && isset($_GET['id']) && $_SESSION['role'] == 'admin'
                 mysqli_stmt_bind_param($stmt, "iiss", $peng['id_barang'], $peng['jumlah'], $tgl, $ket);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_close($stmt);
-                header('Location: /XAMPPPPP/pengajuan/index.php?msg=approved');
+                header('Location: ' . BASE_URL . '/pengajuan/index.php?msg=approved');
                 exit;
             } else {
-                header('Location: /XAMPPPPP/pengajuan/index.php?msg=stok_kurang');
+                header('Location: ' . BASE_URL . '/pengajuan/index.php?msg=stok_kurang');
                 exit;
             }
         }
     } elseif ($action === 'reject') {
         mysqli_query($conn, "UPDATE pengajuan SET status = 'rejected' WHERE id = $id AND status = 'pending'");
-        header('Location: /XAMPPPPP/pengajuan/index.php?msg=rejected');
+        header('Location: ' . BASE_URL . '/pengajuan/index.php?msg=rejected');
         exit;
     }
 }
@@ -65,7 +65,7 @@ if ($_SESSION['role'] == 'admin') {
                 <p><?= $_SESSION['role'] == 'admin' ? 'Kelola pengajuan barang dari staff' : 'Ajukan permintaan barang' ?></p>
             </div>
             <?php if ($_SESSION['role'] == 'staff'): ?>
-            <a href="/XAMPPPPP/pengajuan/tambah.php" class="btn btn-primary-custom btn-sm-custom">
+            <a href="<?= BASE_URL ?>/pengajuan/tambah.php" class="btn btn-primary-custom btn-sm-custom">
                 <i class="bi bi-plus-lg me-1"></i>Ajukan Barang
             </a>
             <?php endif; ?>
@@ -122,12 +122,12 @@ if ($_SESSION['role'] == 'admin') {
                         <?php if ($_SESSION['role'] == 'admin'): ?>
                         <td>
                             <?php if ($row['status'] == 'pending'): ?>
-                                <a href="/XAMPPPPP/pengajuan/index.php?action=approve&id=<?= $row['id'] ?>" 
+                                <a href="<?= BASE_URL ?>/pengajuan/index.php?action=approve&id=<?= $row['id'] ?>" 
                                    class="btn btn-primary-custom btn-sm-custom me-1"
                                    onclick="return confirm('Setujui pengajuan ini?')">
                                     <i class="bi bi-check-lg"></i>
                                 </a>
-                                <a href="/XAMPPPPP/pengajuan/index.php?action=reject&id=<?= $row['id'] ?>" 
+                                <a href="<?= BASE_URL ?>/pengajuan/index.php?action=reject&id=<?= $row['id'] ?>" 
                                    class="btn btn-danger-custom btn-sm-custom"
                                    onclick="return confirm('Tolak pengajuan ini?')">
                                     <i class="bi bi-x-lg"></i>

@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_bind_param($stmt, "iiiss", $id_barang, $id_user, $jumlah, $tanggal, $keterangan);
 
         if (mysqli_stmt_execute($stmt)) {
-            header('Location: /XAMPPPPP/pengajuan/index.php?msg=added');
+            header('Location: ' . BASE_URL . '/pengajuan/index.php?msg=added');
             exit;
         } else {
             $error = 'Gagal menyimpan pengajuan.';
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <button type="submit" class="btn btn-primary-custom">
                                     <i class="bi bi-send me-1"></i>Kirim Pengajuan
                                 </button>
-                                <a href="/XAMPPPPP/pengajuan/index.php" class="btn btn-outline-custom">
+                                <a href="<?= BASE_URL ?>/pengajuan/index.php" class="btn btn-outline-custom">
                                     <i class="bi bi-arrow-left me-1"></i>Kembali
                                 </a>
                             </div>

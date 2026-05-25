@@ -14,7 +14,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         'id' => (int)$row['id'],
         'nama_barang' => $row['nama_barang'],
         'stok' => (int)$row['stok'],
-        'foto' => $row['foto'] ? '/XAMPPPPP/upload/' . $row['foto'] : null,
+        'foto' => $row['foto'] ? BASE_URL . '/upload/' . $row['foto'] : null,
         'created_at' => $row['created_at'],
         'updated_at' => $row['updated_at']
     ];
