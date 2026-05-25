@@ -1,0 +1,496 @@
+/* ============================================
+   STOCK BARANG - STARBUCKS INSPIRED DESIGN
+   ============================================ */
+
+/* === BASE VARIABLES === */
+:root {
+    --bg-main: #f2f0eb;
+    --navbar-bg: #1E3932;
+    --primary: #00754A;
+    --heading: #006241;
+    --card-bg: #ffffff;
+    --text-main: rgba(0, 0, 0, 0.87);
+    --text-secondary: rgba(0, 0, 0, 0.54);
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --radius-card: 12px;
+    --radius-btn: 50px;
+    --transition: all 0.2s ease;
+}
+
+/* === RESET & GLOBAL === */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    padding-top: 76px;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--heading);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading);
+    font-weight: 700;
+}
+
+/* === NAVBAR === */
+.navbar-custom {
+    background-color: var(--navbar-bg) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    padding: 12px 0;
+}
+
+.navbar-custom .navbar-brand {
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    padding: 8px 16px !important;
+    border-radius: var(--radius-btn);
+    transition: var(--transition);
+    margin: 0 2px;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.navbar-custom .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-custom .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* === CARDS === */
+.card-custom {
+    background: var(--card-bg);
+    border: none;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card-custom:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.card-custom .card-body {
+    padding: 24px;
+}
+
+/* === STAT CARDS (DASHBOARD) === */
+.stat-card {
+    background: var(--card-bg);
+    border: none;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+    padding: 28px 24px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+}
+
+.stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 4px;
+}
+
+.stat-card .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-card .stat-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+/* === BUTTONS === */
+.btn-primary-custom {
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    color: #ffffff;
+    border-radius: var(--radius-btn);
+    padding: 10px 28px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--heading);
+    border-color: var(--heading);
+    color: #ffffff;
+}
+
+.btn-primary-custom:active {
+    transform: scale(0.95);
+}
+
+.btn-outline-custom {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: var(--radius-btn);
+    padding: 10px 28px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.btn-outline-custom:active {
+    transform: scale(0.95);
+}
+
+.btn-danger-custom {
+    background-color: #d32f2f;
+    border: 2px solid #d32f2f;
+    color: #ffffff;
+    border-radius: var(--radius-btn);
+    padding: 10px 28px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-danger-custom:hover {
+    background-color: #b71c1c;
+    border-color: #b71c1c;
+    color: #ffffff;
+}
+
+.btn-danger-custom:active {
+    transform: scale(0.95);
+}
+
+.btn-warning-custom {
+    background-color: #f57c00;
+    border: 2px solid #f57c00;
+    color: #ffffff;
+    border-radius: var(--radius-btn);
+    padding: 10px 28px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-warning-custom:hover {
+    background-color: #e65100;
+    border-color: #e65100;
+    color: #ffffff;
+}
+
+.btn-warning-custom:active {
+    transform: scale(0.95);
+}
+
+.btn-sm-custom {
+    padding: 6px 18px;
+    font-size: 0.85rem;
+}
+
+/* === TABLES === */
+.table-custom {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.table-custom table {
+    margin-bottom: 0;
+}
+
+.table-custom thead {
+    background-color: var(--navbar-bg);
+    color: #ffffff;
+}
+
+.table-custom thead th {
+    border: none;
+    padding: 14px 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.table-custom tbody td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    border-color: var(--border-color);
+}
+
+.table-custom tbody tr:hover {
+    background-color: rgba(0, 117, 74, 0.04);
+}
+
+/* === FORMS === */
+.form-custom .form-label {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.form-custom .form-control,
+.form-custom .form-select {
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    transition: var(--transition);
+    background-color: #fafafa;
+}
+
+.form-custom .form-control:focus,
+.form-custom .form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 117, 74, 0.1);
+    background-color: #ffffff;
+}
+
+/* === LOGIN PAGE === */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-main);
+    padding: 20px;
+}
+
+.login-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-card h2 {
+    color: var(--heading);
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.login-card .login-subtitle {
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* === BADGES === */
+.badge-approved {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 5px 14px;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.badge-pending {
+    background-color: #fff3e0;
+    color: #e65100;
+    padding: 5px 14px;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.badge-rejected {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 5px 14px;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.badge-admin {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 5px 14px;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.badge-staff {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    padding: 5px 14px;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* === PAGE HEADER === */
+.page-header {
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.page-header h2 {
+    margin-bottom: 4px;
+}
+
+.page-header p {
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+/* === CONTENT WRAPPER === */
+.content-wrapper {
+    padding: 32px 0;
+    min-height: calc(100vh - 76px);
+}
+
+/* === FOOTER === */
+.footer-custom {
+    background-color: var(--navbar-bg);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* === ALERT === */
+.alert-custom {
+    border: none;
+    border-radius: var(--radius-card);
+    padding: 16px 20px;
+    font-weight: 500;
+}
+
+/* === IMAGE THUMBNAIL === */
+.img-thumbnail-custom {
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    max-width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* === DATATABLES OVERRIDE === */
+.dataTables_wrapper .dataTables_filter input {
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 117, 74, 0.1);
+}
+
+.dataTables_wrapper .dataTables_length select {
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: var(--primary) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: var(--radius-btn);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: rgba(0, 117, 74, 0.1) !important;
+    color: var(--primary) !important;
+    border: none !important;
+    border-radius: var(--radius-btn);
+}
+
+/* === CHART CONTAINER === */
+.chart-container {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    body {
+        padding-top: 66px;
+    }
+
+    .content-wrapper {
+        padding: 20px 0;
+    }
+
+    .stat-card {
+        padding: 20px 16px;
+        margin-bottom: 16px;
+    }
+
+    .stat-card .stat-number {
+        font-size: 2rem;
+    }
+
+    .login-card {
+        padding: 32px 24px;
+    }
+
+    .page-header {
+        margin-bottom: 20px;
+    }
+}
+
+/* === UTILITIES === */
+.mt-spacer {
+    margin-top: 32px;
+}
+
+.mb-spacer {
+    margin-bottom: 32px;
+}
+
+.text-primary-custom {
+    color: var(--primary) !important;
+}
+
+.text-heading {
+    color: var(--heading) !important;
+}
